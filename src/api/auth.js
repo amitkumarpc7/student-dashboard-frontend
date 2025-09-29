@@ -6,6 +6,6 @@ export const login = async (email, password) => {
 };
 
 export const signup = async (name, email, password) => {
-  const resp = await axios.post("/auth/signup", { name, email, password });
+  const resp = await axios.post("/auth/register", { name, email, password });
   return resp.data;
 };

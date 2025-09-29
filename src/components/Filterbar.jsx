@@ -21,7 +21,7 @@ const FilterBar = ({
     );
   };
   return (
-    <div className="flex flex-wrap items-end gap-4 mb-6">
+    <div className="flex flex-wrap gap-4 mb-6">
       <div className="w-full sm:w-1/3 md:w-1/4">
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Filter by Status
@@ -86,17 +86,6 @@ const FilterBar = ({
           onChange={onDateChange}
           allowEmpty={[true, true]}
         />
-      </div>
-
-      <div className="ml-auto flex items-end gap-2">
-        <button
-          type="button"
-          className="px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded border border-gray-200 dark:border-gray-600"
-          onClick={() => onFilterChange([], [], "", [])}
-        >
-          Clear
-        </button>
-        {/* Export button rendered in Dashboard, but keep space here */}
       </div>
     </div>
   );

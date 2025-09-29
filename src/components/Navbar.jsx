@@ -6,6 +6,7 @@ import { ThemeToggle } from "./ThemeSwitch";
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
+  const isAuthenticated = !!(user && user.token);
 
   return (
     <div className="bg-white dark:bg-gray-800 shadow-md p-4 transition-colors duration-200">
@@ -22,7 +23,7 @@ const Navbar = () => {
 
           {/* Desktop Links */}
           <div className="hidden md:flex gap-6 items-center">
-            {user && (
+            {isAuthenticated ? (
               <>
                 <Link
                   to="/"
@@ -49,6 +50,21 @@ const Navbar = () => {
                   Logout
                 </button>
               </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                >
+                  Sign Up
+                </Link>
+              </>
             )}
           </div>
 
@@ -65,7 +81,7 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       {open && (
         <div className="flex flex-col mt-2 md:hidden gap-2">
-          {user && (
+          {isAuthenticated ? (
             <>
               <Link
                 to="/"
@@ -97,6 +113,23 @@ const Navbar = () => {
               >
                 Logout
               </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                onClick={() => setOpen(false)}
+                className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                onClick={() => setOpen(false)}
+                className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+              >
+                Sign Up
+              </Link>
             </>
           )}
         </div>

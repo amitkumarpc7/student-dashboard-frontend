@@ -14,11 +14,11 @@ const TransactionTable = ({ loading, data, onChange, pagination }) => {
     {
       title: "Institute Name",
       dataIndex: "institute_name",
-      render: (_v, record) =>
-        record.institute_name ||
-        record.school_name ||
-        record.school_id ||
-        "N/A",
+      render: (_v, r) =>
+        r.institute_name ||
+        r.school_name ||
+        r.school_id ||
+        "Edviron",
       sorter: true,
       ellipsis: true,
       width: 180,
@@ -26,10 +26,29 @@ const TransactionTable = ({ loading, data, onChange, pagination }) => {
     {
       title: "Date & Time",
       dataIndex: "payment_time",
+       render: (_v, r) => {
+    if (!r.createdAt) return "N/A";
+    const date = new Date(r.createdAt);
+    return date.toLocaleString("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true
+    });
+  },
       sorter: true,
       width: 180,
     },
-    { title: "Order ID", dataIndex: "order_id", sorter: true, width: 120 },
+    {
+      title: "Order ID",
+      dataIndex: "order_id",
+      render: (_v, r) => r.custom_order_id || "N/A",
+      sorter: true,
+      width: 120,
+    },
     {
       title: "Edviron Order ID",
       dataIndex: "edviron_order_id",
@@ -76,8 +95,18 @@ const TransactionTable = ({ loading, data, onChange, pagination }) => {
       ),
       width: 110,
     },
-    { title: "Student Name", dataIndex: "student_name", width: 140 },
-    { title: "Student ID", dataIndex: "student_id", width: 120 },
+    {
+      title: "Student Name",
+      dataIndex: "student_name",
+      render: (_v, r) => r.orderInfo?.student_info?.name || "N/A",
+      width: 140,
+    },
+    {
+      title: "Student ID",
+      dataIndex: "student_id",
+      render: (_v, r) => r.orderInfo?.student_info?._id || "N/A",
+      width: 120,
+    },
     {
       title: "Phone No.",
       dataIndex: "phone",

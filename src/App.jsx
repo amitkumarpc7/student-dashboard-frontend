@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <AuthProvider>
           <Navbar />
-          <div className="container mx-auto p-4 bg-lightGray dark:bg-gray-900">
+          <div className="container mx-auto bg-lightGray dark:bg-gray-900">
             <AppRouter />
           </div>
         </AuthProvider>

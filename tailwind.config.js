@@ -7,6 +7,9 @@ export default {
       colors: {
         lightGray: "#f6f8fa",
       },
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"], 
+      },
     },
   },
   plugins: [],
