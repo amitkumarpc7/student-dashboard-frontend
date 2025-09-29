@@ -22,10 +22,11 @@ A responsive **React + Vite** web application for managing student payments
 * Transactions Dashboard with Pagination
   -Integrated Pagination to display large sets of data efficiently.
   ![image alt](https://github.com/amitkumarpc7/student-dashboard-frontend/blob/c4258be52b099fae6640a4fcb91b9d5ed79ca8a2/src/screenshots/PaginatedDashboard.png)
-* Export Transactions to CSV
+* Export Transactions to CSV with theme switching
   -An Export Button to Export your transactions in CSV Format.
-  ![image alt](https://github.com/amitkumarpc7/student-dashboard-frontend/blob/c4258be52b099fae6640a4fcb91b9d5ed79ca8a2/src/screenshots/ExportCSV.png)
+  ![image alt](https://github.com/amitkumarpc7/student-dashboard-frontend/blob/d524273b3aad1277446746f7deb9a4baf399070f/src/screenshots/LightMode.png)
 * Responsive Design for Mobile, Tablet, Desktop
+  - A responsive design for every device for better viewing.
 
 ---
 
