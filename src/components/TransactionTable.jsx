@@ -27,8 +27,8 @@ const TransactionTable = ({ loading, data, onChange, pagination }) => {
       title: "Date & Time",
       dataIndex: "payment_time",
        render: (_v, r) => {
-    if (!r.createdAt) return "N/A";
-    const date = new Date(r.createdAt);
+    if (!r.payment_time) return "N/A";
+    const date = new Date(r.payment_time);
     return date.toLocaleString("en-GB", {
       day: "2-digit",
       month: "2-digit",

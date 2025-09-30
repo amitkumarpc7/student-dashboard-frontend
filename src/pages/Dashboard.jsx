@@ -12,6 +12,7 @@ import {
   X,
   AlertCircle,
 } from "lucide-react";
+import { formatDateTime } from "../context/dateFormatter";
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
@@ -522,7 +523,7 @@ const Dashboard = () => {
                               {/* {"Edviron "} */}
                             </td>
                             <td className="py-3 px-4 text-sm text-gray-600 dark:text-gray-300 whitespace-nowrap">
-                              {row.payment_time || ""}
+                              {formatDateTime(row.payment_time)}
                             </td>
                             <td className="py-3 px-4 text-sm text-gray-600 dark:text-gray-300">
                               <div className="flex items-center gap-2">
@@ -621,7 +622,7 @@ const Dashboard = () => {
                                     "N/A"}
                                 </div>
                                 <div className="text-sm text-gray-500 dark:text-gray-400">
-                                  {row.payment_time || ""}
+                                  {formatDateTime(row.payment_time)}
                                 </div>
                               </div>
                               <span
