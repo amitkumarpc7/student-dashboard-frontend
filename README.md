@@ -10,9 +10,9 @@ A responsive **React + Vite** web application for managing student payments
   ![image alt](https://github.com/amitkumarpc7/student-dashboard-frontend/blob/c4258be52b099fae6640a4fcb91b9d5ed79ca8a2/src/screenshots/LoginPage.png)
 * View All Transactions
   -View all the transactions from the dashboard. It have filter and sort options to sort the transactions
-  ![image alt](https://github.com/amitkumarpc7/student-dashboard-frontend/blob/f5b402a9dca6a3def59abbb6b3275a1c28ea4380/src/screenshots/DashboardPage.png)
+  ![image alt](https://github.com/amitkumarpc7/student-dashboard-frontend/blob/9bfc2aa0b5cdab112e33b5f4c5e56eff456773bb/src/screenshots/DashboardPage.png)
   -Search using Order Id in the dashboard
-  ![image alt](https://github.com/amitkumarpc7/student-dashboard-frontend/blob/c4258be52b099fae6640a4fcb91b9d5ed79ca8a2/src/screenshots/SearchBYOrderID.png)
+  ![image alt](https://github.com/amitkumarpc7/student-dashboard-frontend/blob/9bfc2aa0b5cdab112e33b5f4c5e56eff456773bb/src/screenshots/SearchBYOrderID.png)
 * Check Transactions by SchoolID
   -Search using School Id. It will give you all transactions with the respective id
   ![image alt](https://github.com/amitkumarpc7/student-dashboard-frontend/blob/c4258be52b099fae6640a4fcb91b9d5ed79ca8a2/src/screenshots/TransactionDetailsBySchoolId.png)
@@ -21,7 +21,7 @@ A responsive **React + Vite** web application for managing student payments
   ![image alt](https://github.com/amitkumarpc7/student-dashboard-frontend/blob/c4258be52b099fae6640a4fcb91b9d5ed79ca8a2/src/screenshots/StatusCheck.png)
 * Transactions Dashboard with Pagination
   -Integrated Pagination to display large sets of data efficiently.
-  ![image alt](https://github.com/amitkumarpc7/student-dashboard-frontend/blob/c4258be52b099fae6640a4fcb91b9d5ed79ca8a2/src/screenshots/PaginatedDashboard.png)
+  ![image alt](https://github.com/amitkumarpc7/student-dashboard-frontend/blob/9bfc2aa0b5cdab112e33b5f4c5e56eff456773bb/src/screenshots/PaginatedDashboard.png)
 * Export Transactions to CSV with theme switching
   -An Export Button to Export your transactions in CSV Format.
   ![image alt](https://github.com/amitkumarpc7/student-dashboard-frontend/blob/d524273b3aad1277446746f7deb9a4baf399070f/src/screenshots/LightMode.png)
