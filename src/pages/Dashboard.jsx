@@ -12,7 +12,9 @@ import {
   X,
   AlertCircle,
 } from "lucide-react";
+import {  Button } from "antd";
 import { formatDateTime } from "../context/dateFormatter";
+import {  ReloadOutlined } from "@ant-design/icons";
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
@@ -51,6 +53,9 @@ const Dashboard = () => {
     field: searchParams.get("sort") || "payment_time",
     order: searchParams.get("order") || "desc",
   });
+  const [selectedDate, setSelectedDate] = useState(() => {
+    return searchParams.get("start_date") || "";
+  });
 
   const loadData = async () => {
     setLoading(true);
@@ -63,8 +68,8 @@ const Dashboard = () => {
         search: appliedSearch || undefined,
         sort: sorter.field,
         order: sorter.order, //=== "ascend" ? "asc" : "desc",
-        start_date: dateRange?.[0] || undefined,
-        end_date: dateRange?.[1] || undefined,
+        start_date: selectedDate || undefined,
+        // end_date: dateRange?.[1] || undefined,
       };
       const resp = await fetchTransactions(params);
       setData(resp.data);
@@ -152,10 +157,7 @@ const Dashboard = () => {
     if (statusFilter.length) params.set("status", statusFilter.join(","));
     if (schoolFilter.length) params.set("school_id", schoolFilter.join(","));
     if (searchText) params.set("search", searchText);
-    if (dateRange?.length === 2) {
-      params.set("start_date", dateRange[0]);
-      params.set("end_date", dateRange[1]);
-    }
+    if (selectedDate) params.set("start_date", selectedDate);
     params.set("page", String(pagination.current));
     params.set("limit", String(pagination.pageSize));
     params.set("sort", sorter.field);
@@ -171,7 +173,7 @@ const Dashboard = () => {
     pagination.current,
     pagination.pageSize,
     sorter,
-    dateRange,
+    selectedDate,
   ]);
 
   const handleTableChange = (pag, filters, sorterObj) => {
@@ -189,9 +191,21 @@ const Dashboard = () => {
     setStatusFilter(sts);
     setSchoolFilter(schools);
     setSearchText(search);
-    setDateRange(range || []);
+     setSelectedDate(range?.[0] || ""); 
     setPagination((prev) => ({ ...prev, current: 1 })); // reset to page 1 on filter change
   };
+
+  const clearFilters = () => {
+    setStatusFilter([]);
+    setSchoolFilter([]);
+    setSearchText("");
+    setAppliedSearch("");
+    setSelectedDate("");
+    setDateRange([]);
+    setPagination((prev) => ({ ...prev, current: 1 }));
+    setSorter({ field: "payment_time", order: "desc" });
+  };
+
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 lg:p-6 transition-colors duration-200">
@@ -340,30 +354,9 @@ const Dashboard = () => {
                 <div className="relative">
                   <input
                     type="date"
-                    placeholder="Date"
+                    value={selectedDate}
+                    onChange={(e) => setSelectedDate(e.target.value)}
                     className="border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent min-w-[140px]"
-                  />
-                </div>
-
-                {/* Status Filter */}
-                <div className="relative">
-                  <select
-                    value={statusFilter.join(",")}
-                    onChange={(e) =>
-                      setStatusFilter(
-                        e.target.value ? e.target.value.split(",") : []
-                      )
-                    }
-                    className="appearance-none bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:border-transparent min-w-[120px] text-gray-900 dark:text-white"
-                  >
-                    <option value="">Status</option>
-                    <option value="pending">Pending</option>
-                    <option value="completed">Completed</option>
-                    <option value="failed">Failed</option>
-                  </select>
-                  <ChevronDown
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 pointer-events-none"
-                    size={16}
                   />
                 </div>
 
@@ -386,6 +379,19 @@ const Dashboard = () => {
                     className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 pointer-events-none"
                     size={16}
                   />
+                </div>
+
+                {/* Status Filter */}
+                <div className="relative">
+                  <Button
+                    onClick={clearFilters}
+                    size="large"
+                    className="w-full sm:w-auto"
+                    disabled={loading}
+                    icon={<ReloadOutlined />}
+                  >
+                    Clear
+                  </Button>
                 </div>
 
                 {/* Mobile Filter Toggle */}
