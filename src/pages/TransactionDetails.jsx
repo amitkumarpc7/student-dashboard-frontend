@@ -20,37 +20,6 @@ const TransactionDetails = () => {
   const [collectRequestId, setCollectRequestId] = useState(null);
   const [showPaymentNotification, setShowPaymentNotification] = useState(false);
 
-  // Handle payment callback from URL parameters
-  // useEffect(() => {
-  //   const status = searchParams.get("status");
-  //   const requestId = searchParams.get("EdvironCollectRequestId");
-
-  //   if (status && requestId) {
-  //     setPaymentStatus(status);
-  //     setCollectRequestId(requestId);
-  //     setShowPaymentNotification(true);
-
-  //     console.log(`Payment ${status} for transaction: ${requestId}`);
-
-  //     // Clean up URL parameters after processing
-  //     const cleanSearchParams = new URLSearchParams(searchParams);
-  //     cleanSearchParams.delete("status");
-  //     cleanSearchParams.delete("EdvironCollectRequestId");
-  //     window.history.replaceState(
-  //       {},
-  //       "",
-  //       `${window.location.pathname}?${cleanSearchParams}`
-  //     );
-
-  //     // Auto-hide notification after 8 seconds
-  //     const timer = setTimeout(() => {
-  //       setShowPaymentNotification(false);
-  //     }, 8000);
-
-  //     return () => clearTimeout(timer);
-  //   }
-  // }, [searchParams]);
-
   const fetch = async () => {
     setLoading(true);
     try {

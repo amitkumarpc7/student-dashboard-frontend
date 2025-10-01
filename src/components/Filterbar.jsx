@@ -39,21 +39,6 @@ const FilterBar = ({
         </Select>
       </div>
 
-      <div className="w-full sm:w-1/3 md:w-1/4">
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-          Filter by School
-        </label>
-        <Select
-          mode="multiple"
-          placeholder="Select School"
-          className="w-full"
-          value={schoolFilter}
-          onChange={(val) => onFilterChange(statusFilter, val, searchText)}
-        >
-          {/* You could fetch school list or get from API */}
-          <Option value="65b0e6293e9f76a9694d84b4">DefaultSchool</Option>
-        </Select>
-      </div>
 
       <div className="w-full sm:w-1/3 md:w-1/4">
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">

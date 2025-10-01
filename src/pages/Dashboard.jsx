@@ -211,67 +211,6 @@ const Dashboard = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 lg:p-6 transition-colors duration-200">
       <div className="max-w-full mx-auto">
         {/* Payment Status Notification */}
-        {showPaymentNotification && paymentStatus && collectRequestId && (
-          <div
-            className={`mb-6 p-4 rounded-lg border ${
-              paymentStatus === "SUCCESS"
-                ? "bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800"
-                : "bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800"
-            }`}
-          >
-            <div className="flex justify-between items-start">
-              <div className="flex items-start space-x-3">
-                <div
-                  className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${
-                    paymentStatus === "SUCCESS"
-                      ? "bg-green-100 text-green-600 dark:bg-green-800 dark:text-green-300"
-                      : "bg-red-100 text-red-600 dark:bg-red-800 dark:text-red-300"
-                  }`}
-                >
-                  {paymentStatus === "SUCCESS" ? "✓" : "✗"}
-                </div>
-                <div>
-                  <h3
-                    className={`font-medium ${
-                      paymentStatus === "SUCCESS"
-                        ? "text-green-800 dark:text-green-300"
-                        : "text-red-800 dark:text-red-300"
-                    }`}
-                  >
-                    Payment{" "}
-                    {paymentStatus === "SUCCESS" ? "Successful" : "Failed"}
-                  </h3>
-                  <p
-                    className={`text-sm mt-1 ${
-                      paymentStatus === "SUCCESS"
-                        ? "text-green-600 dark:text-green-400"
-                        : "text-red-600 dark:text-red-400"
-                    }`}
-                  >
-                    Transaction ID:{" "}
-                    <span className="font-mono">{collectRequestId}</span>
-                  </p>
-                  {paymentStatus === "SUCCESS" && (
-                    <p className="text-sm text-green-600 dark:text-green-400 mt-1">
-                      The payment has been processed successfully. The
-                      transaction list will update automatically.
-                    </p>
-                  )}
-                </div>
-              </div>
-              <button
-                onClick={handleCloseNotification}
-                className={`flex-shrink-0 ${
-                  paymentStatus === "SUCCESS"
-                    ? "text-green-400 hover:text-green-600"
-                    : "text-red-400 hover:text-red-600"
-                }`}
-              >
-                <X size={20} />
-              </button>
-            </div>
-          </div>
-        )}
 
         {/* Header */}
         <div className="bg-lightGray dark:bg-gray-800 rounded-lg shadow-sm mb-6 p-4 lg:p-6 transition-colors duration-200 ">
